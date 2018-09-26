@@ -20,7 +20,7 @@ namespace UnitTestProject1
                 Directory.CreateDirectory(path);
         }
 
-        public static void NewScreenshot(string testCase)
+        public static void NewScreenshot(string testCase, ChromeDriver driver)
         {
 
             string ROOT_FOLDER = "G:/My Drive/";
@@ -29,11 +29,9 @@ namespace UnitTestProject1
             Helper.CreateIfMissing(ROOT_FOLDER + DATE);
 
             String root = ROOT_FOLDER + DATE + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
-            ChromeDriver driver = new ChromeDriver();
             ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
             Screenshot screenshot = screenshotDriver.GetScreenshot();
             screenshot.SaveAsFile(root + " " + testCase + ".png", ScreenshotImageFormat.Png);
-            driver.Quit();
         }
 
     }

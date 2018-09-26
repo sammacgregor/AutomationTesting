@@ -30,7 +30,7 @@ namespace UnitTestProject1
 
                 driver.FindElement(By.Name("btnK")).Submit();
 
-                Helper.NewScreenshot(this.GetType().FullName);
+                Helper.NewScreenshot(this.GetType().FullName, driver);
 
 
                 driver.Close();
@@ -38,7 +38,7 @@ namespace UnitTestProject1
             }
             catch {
 
-                Helper.NewScreenshot(this.GetType().FullName);
+                Helper.NewScreenshot(this.GetType().FullName, driver);
                 driver.Quit();
             }
         }
@@ -60,7 +60,7 @@ namespace UnitTestProject1
 
 
 
-                Helper.NewScreenshot(this.GetType().FullName);
+                Helper.NewScreenshot(this.GetType().FullName, driver);
 
 
 
@@ -69,7 +69,7 @@ namespace UnitTestProject1
             }
             catch
             {
-                Helper.NewScreenshot(this.GetType().FullName);
+                Helper.NewScreenshot(this.GetType().FullName, driver);
 
                 driver.Quit();
             }
