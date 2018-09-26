@@ -13,10 +13,6 @@ namespace UnitTestProject1
     public class SampleTestSet
     {
 
-        public static String ROOT_FOLDER = "G:/My Drive/";
-        String date = DateTime.Today.ToShortDateString();
-
-
 
 
         [TestMethod]
@@ -33,10 +29,8 @@ namespace UnitTestProject1
                 driver.FindElement(By.Id("lst-ib")).SendKeys("Hello World");
 
                 driver.FindElement(By.Name("btnK")).Submit();
-                String path = ROOT_FOLDER + date;
-                Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
-                Helper.NewScreenshot(targetFilePath);
+
+                Helper.NewScreenshot(this.GetType().FullName);
 
 
                 driver.Close();
@@ -44,12 +38,7 @@ namespace UnitTestProject1
             }
             catch {
 
-
-
-                String path = ROOT_FOLDER + date;
-                Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
-                Helper.NewScreenshot(targetFilePath);
+                Helper.NewScreenshot(this.GetType().FullName);
                 driver.Quit();
             }
         }
@@ -70,22 +59,18 @@ namespace UnitTestProject1
                 driver.FindElement(By.Name("btnK")).Submit();
 
 
-                
-                String path = ROOT_FOLDER + date;
-                Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
-                Helper.NewScreenshot(targetFilePath);
-                               
+
+                Helper.NewScreenshot(this.GetType().FullName);
+
+
 
                 driver.Close();
                 driver.Dispose();
             }
             catch
             {
-                String path = ROOT_FOLDER + date;
-                Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
-                Helper.NewScreenshot(targetFilePath);
+                Helper.NewScreenshot(this.GetType().FullName);
+
                 driver.Quit();
             }
         }

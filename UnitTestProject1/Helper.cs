@@ -10,6 +10,8 @@ namespace UnitTestProject1
     class Helper
     {
 
+
+
         public static void CreateIfMissing(string path)
         {
 
@@ -18,16 +20,21 @@ namespace UnitTestProject1
                 Directory.CreateDirectory(path);
         }
 
-        public static void NewScreenshot(string path)
+        public static void NewScreenshot(string testCase)
         {
 
+            string ROOT_FOLDER = "G:/My Drive/";
+            String DATE = DateTime.Today.ToShortDateString();
+
+            Helper.CreateIfMissing(ROOT_FOLDER + DATE);
+
+            String root = ROOT_FOLDER + DATE + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
             ChromeDriver driver = new ChromeDriver();
             ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
             Screenshot screenshot = screenshotDriver.GetScreenshot();
-            screenshot.SaveAsFile(path + ".png", ScreenshotImageFormat.Png);
+            screenshot.SaveAsFile(root + " " + testCase + ".png", ScreenshotImageFormat.Png);
             driver.Quit();
         }
-
 
     }
 }
