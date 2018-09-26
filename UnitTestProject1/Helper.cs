@@ -23,8 +23,8 @@ namespace UnitTestProject1
         public static void NewScreenshot(string testCase, ChromeDriver driver)
         {
 
-            string ROOT_FOLDER = "G:/My Drive/";
-            String DATE = DateTime.Today.ToShortDateString();
+            string ROOT_FOLDER = "E:/Development/";
+            String DATE = DateTime.Today.ToString("yyyy-MM-dd");
 
             Helper.CreateIfMissing(ROOT_FOLDER + DATE);
 
