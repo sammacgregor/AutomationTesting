@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class SampleTestSet
     {
 
         public static String ROOT_FOLDER = "G:/My Drive/";
@@ -33,9 +33,12 @@ namespace UnitTestProject1
                 driver.FindElement(By.Id("lst-ib")).SendKeys("Hello World");
 
                 driver.FindElement(By.Name("btnK")).Submit();
-                
-                
-                
+                String path = ROOT_FOLDER + date;
+                Helper.CreateIfMissing(path);
+                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
+                Helper.NewScreenshot(targetFilePath);
+
+
                 driver.Close();
                 driver.Dispose();
             }
@@ -45,9 +48,8 @@ namespace UnitTestProject1
 
                 String path = ROOT_FOLDER + date;
                 Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
                 Helper.NewScreenshot(targetFilePath);
-                driver.Quit();
                 driver.Quit();
             }
         }
@@ -71,7 +73,7 @@ namespace UnitTestProject1
                 
                 String path = ROOT_FOLDER + date;
                 Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
                 Helper.NewScreenshot(targetFilePath);
                                
 
@@ -82,7 +84,7 @@ namespace UnitTestProject1
             {
                 String path = ROOT_FOLDER + date;
                 Helper.CreateIfMissing(path);
-                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+                String targetFilePath = ROOT_FOLDER + date + "/" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + this.GetType().FullName;
                 Helper.NewScreenshot(targetFilePath);
                 driver.Quit();
             }
